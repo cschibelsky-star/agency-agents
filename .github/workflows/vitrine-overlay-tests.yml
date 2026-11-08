@@ -1,0 +1,28 @@
+name: Vitrine Agent Overlay — Offline Tests
+
+on:
+  pull_request:
+    paths:
+      - "integrations/vitrine/**"
+      - ".github/workflows/vitrine-overlay-tests.yml"
+  push:
+    branches:
+      - "feature/vitrine-governed-agent-pilot-20261108"
+    paths:
+      - "integrations/vitrine/**"
+      - ".github/workflows/vitrine-overlay-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  overlay-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify optional agent overlay without network or external credentials
+        run: python -m unittest discover -s integrations/vitrine/tests -v
