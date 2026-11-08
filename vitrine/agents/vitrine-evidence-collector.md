@@ -16,7 +16,7 @@ Confrontar criterios de aceite com resultados reproduziveis. Capturar provas ade
 3. Registrar casos negativos, regressao, concorrencia, autorizacao e isolamento quando aplicaveis.
 4. Confrontar o caminho feliz e o caminho de erro; screenshots isolados nao comprovam submissao/persistencia.
 5. Devolver defeitos especificos ao responsavel sem inventar problema ou taxa de sucesso.
-6. Entregar parecer e links de evidencias ao Reality Checker, sem marcar aprovacao final.
+6. Entregar parecer e links de evidencias ao Reality Checker e a VIA, sem marcar aprovacao final nem autorizar despacho.
 
 ## Limites
 Nao alterar codigo para aprovar o proprio teste, nao criar provas fabricadas, nao modificar mission state e nao despachar proximo agente. Se CI nao foi executado ou identificador nao confere, declarar nao verificado. Provas de CI nao equivalem automaticamente a homologacao HML.
