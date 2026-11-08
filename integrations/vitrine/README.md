@@ -10,19 +10,19 @@ Esta pasta adiciona um conjunto piloto, opt-in e isolado de tres perfis adaptado
 | Vitrine Evidence Collector | testing/testing-evidence-collector.md | Levantar evidencias reproduziveis sem autodeclarar aprovacao |
 | Vitrine Reality Checker | testing/testing-reality-checker.md | Revisao independente e parecer de risco; nao libera agentes |
 
-As tres instrucoes estao em vitrine/agents/. O manifesto legivel por maquina fica em vitrine/manifest.json.
+As tres instrucoes estao em integrations/vitrine/agents/. O manifesto legivel por maquina fica em integrations/vitrine/manifest.json.
 
 ## Uso local deliberado
 
 Requisitos: Python 3.11+; nao requer token, API nem servico externo.
 
-- Visualizar destinos sem gravar: python3 vitrine/tools/install_agents.py --tool claude-code --dest ~/.claude/agents
-- Instalar explicitamente em Claude Code: python3 vitrine/tools/install_agents.py --tool claude-code --dest ~/.claude/agents --apply
-- Visualizar destinos para Codex CLI: python3 vitrine/tools/install_agents.py --tool codex --dest ~/.codex/agents
-- Instalar explicitamente no Codex CLI: python3 vitrine/tools/install_agents.py --tool codex --dest ~/.codex/agents --apply
-- Testar localmente: python3 -m unittest discover -s vitrine/tests -v
+- Visualizar destinos sem gravar: python3 integrations/vitrine/tools/install_agents.py --tool claude-code --dest ~/.claude/agents
+- Instalar explicitamente em Claude Code: python3 integrations/vitrine/tools/install_agents.py --tool claude-code --dest ~/.claude/agents --apply
+- Visualizar destinos para Codex CLI: python3 integrations/vitrine/tools/install_agents.py --tool codex --dest ~/.codex/agents
+- Instalar explicitamente no Codex CLI: python3 integrations/vitrine/tools/install_agents.py --tool codex --dest ~/.codex/agents --apply
+- Testar localmente: python3 -m unittest discover -s integrations/vitrine/tests -v
 
-O instalador nunca sobrescreve arquivos existentes, nao faz instalacao remota e nao configura ChatGPT via navegador. Para trabalho supervisionado no ChatGPT, seguir vitrine/AGENTS.md e importar somente os tres perfis no contexto do projeto. Para Claude Code, seguir tambem vitrine/CLAUDE.md.
+O instalador nunca sobrescreve arquivos existentes, nao faz instalacao remota e nao configura ChatGPT via navegador. Para trabalho supervisionado no ChatGPT, seguir integrations/vitrine/AGENTS.md e importar somente os tres perfis no contexto do projeto. Para Claude Code, seguir tambem integrations/vitrine/CLAUDE.md.
 
 ## Fronteiras e fonte de verdade
 
@@ -35,7 +35,7 @@ O instalador nunca sobrescreve arquivos existentes, nao faz instalacao remota e 
 
 ## Estado
 
-Piloto documental e instalador local para Claude/Codex, com testes offline. Nao existe adaptador de runtime com Factory/VIA, worker, MCP ativado, homologacao HML ou certificacao de producao. Gate G0-G6 permanece sob a governanca canonica. Consulte vitrine/contracts/HANDOFF.md.
+Piloto documental e instalador local para Claude/Codex, com testes offline. Nao existe adaptador de runtime com Factory/VIA, worker, MCP ativado, homologacao HML ou certificacao de producao. Gate G0-G6 permanece sob a governanca canonica. Consulte integrations/vitrine/contracts/HANDOFF.md.
 
 ## Dependencias de promocao
 

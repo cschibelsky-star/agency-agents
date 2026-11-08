@@ -36,7 +36,7 @@ class OverlayTests(unittest.TestCase):
         for agent in self.manifest["agents"]:
             self.assertFalse(agent["may_approve_own_work"])
             self.assertTrue((ROOT / agent["file"]).is_file())
-            self.assertTrue((ROOT.parent / agent["upstream"]).is_file())
+            self.assertTrue((ROOT.parent.parent / agent["upstream"]).is_file())
             contents = (ROOT / agent["file"]).read_text(encoding="utf-8")
             header, body = install_agents.profile(contents)
             self.assertEqual(header["name"], agent["name"])
