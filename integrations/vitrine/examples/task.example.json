@@ -1,0 +1,11 @@
+{
+  "task_id": "PILOTO-001",
+  "repository": "cschibelsky-star/agency-agents",
+  "branch": "feature/vitrine-governed-agent-pilot-20261108",
+  "objective": "Revisar handoff dos agentes consultivos",
+  "scope": "somente offline",
+  "criteria": [
+    "Sem autorizacao de despacho",
+    "Handoff permanece blocked"
+  ]
+}

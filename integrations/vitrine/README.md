@@ -40,3 +40,10 @@ Piloto documental e instalador local para Claude/Codex, com testes offline. Nao 
 ## Dependencias de promocao
 
 Revisao independente para SHA vigente, checks obrigatorios, validacao do contrato canonico, homologacao isolada autorizada e posterior autorizacao explicita para integracao no runtime. Os PRs #21/#37/#162 estao em draft na data de elaboracao.
+
+## Preparador de tarefa offline
+
+Para criar pacotes consultivos sem executar IA, use:
+`python3 integrations/vitrine/tools/prepare_task.py --task integrations/vitrine/examples/task.example.json --role architect --output-dir ./pacote-teste`
+
+Por padrao, somente lista os destinos (dry-run). Acrescente `--apply` apenas para gerar dois arquivos locais: `prompt.md` e `handoff.draft.json`. Os papeis sao `architect`, `evidence` e `review`. O rascunho sempre fica bloqueado: `state=blocked`, `checks=[]`, `review=pending` e nenhuma autorizacao de escrita ou producao. Isto nao constitui integracao de runtime Factory/VIA.
