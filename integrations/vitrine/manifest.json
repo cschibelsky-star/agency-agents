@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "overlay": "vitrine-agents-pilot",
+  "status": "experimental",
+  "integration_mode": "offline_advisory",
+  "execution_enabled": false,
+  "supervisor_mode": "OBSERVER",
+  "governance": {
+    "canonical_repository": "cschibelsky-star/VitrineAI-Factory",
+    "canonical_reference": "docs/engineering-standards/agent-excellence-v1.md",
+    "handoff_verifier": "tools/verify-agent-handoff.php",
+    "related_prs": [
+      "cschibelsky-star/VitrineAI-Factory#21",
+      "cschibelsky-star/via#37",
+      "cschibelsky-star/vitrine-ai-pro#162"
+    ],
+    "gates": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6"
+    ],
+    "can_advance": false,
+    "dispatch_allowed": false,
+    "production_allowed": false,
+    "api_calls_allowed": false,
+    "max_retries": 3
+  },
+  "agents": [
+    {
+      "id": "vitrine-multi-agent-architect",
+      "name": "Vitrine Multi-Agent Architect",
+      "file": "agents/vitrine-multi-agent-architect.md",
+      "upstream": "engineering/engineering-multi-agent-systems-architect.md",
+      "role": "architecture",
+      "may_approve_own_work": false
+    },
+    {
+      "id": "vitrine-evidence-collector",
+      "name": "Vitrine Evidence Collector",
+      "file": "agents/vitrine-evidence-collector.md",
+      "upstream": "testing/testing-evidence-collector.md",
+      "role": "quality_evidence",
+      "may_approve_own_work": false
+    },
+    {
+      "id": "vitrine-reality-checker",
+      "name": "Vitrine Reality Checker",
+      "file": "agents/vitrine-reality-checker.md",
+      "upstream": "testing/testing-reality-checker.md",
+      "role": "independent_review",
+      "may_approve_own_work": false
+    }
+  ]
+}
