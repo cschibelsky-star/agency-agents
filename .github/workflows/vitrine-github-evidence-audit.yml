@@ -1,0 +1,32 @@
+name: Vitrine GitHub Evidence Audit (read-only)
+
+on:
+  pull_request:
+    paths:
+      - "integrations/vitrine/**"
+      - ".github/workflows/vitrine-github-evidence-audit.yml"
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify fail-closed audit policy (synthetic data)
+        run: python -m unittest discover -s integrations/vitrine/tests -p test_github_evidence.py -v
+      - name: Read PR, reviews and checks from authenticated GitHub REST
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: python integrations/vitrine/tools/audit_github_pr.py --repo "$GITHUB_REPOSITORY" --pr "$PR_NUMBER"
